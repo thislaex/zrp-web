@@ -1,0 +1,920 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Z-Roleplay - Türkiye'nin Apokaliptik SA-MP Roleplay Sunucusu</title>
+
+    <!-- SEO Meta Etiketleri -->
+    <meta name="description"
+        content="Z-Roleplay, Apokaliptik post-apokaliptik bir dünyada geçen Türkiye'nin tek post apokaliptik senaryolu SA:MP roleplay sunucusu. Zombi istilasında hayatta kalmaya hazır mısın?">
+    <meta name="keywords"
+        content="DayZ, Roleplay, SA-MP, GTA San Andreas, Z-Roleplay, zombi, hayatta kalma, post-apokaliptik, Türkçe roleplay, gaming">
+    <meta name="author" content="Z-Roleplay Development Team">
+    <meta name="robots" content="index, follow">
+    <link rel="icon" type="image/png" sizes="32x32" href="img/32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="img/16x16.png">
+    <meta name="language" content="Turkish">
+
+    <!-- Open Graph / Facebook Meta Etiketleri -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.z-roleplay.com/">
+    <meta property="og:title" content="Z-Roleplay - Apokaliptik SA-MP Sunucusu">
+    <meta property="og:description"
+        content="Zombi istilası altındaki bir dünyada hayatta kalmak için mücadele et. Türkiye'nin tek post apokaliptik senaryolu SA:MP roleplay sunucusu.">
+    <meta property="og:image" content="https://www.z-roleplay.com/img/zrp.jpg">
+
+    <!-- Twitter Meta Etiketleri -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://www.z-roleplay.com/">
+    <meta name="twitter:title" content="Z-Roleplay - Apokaliptik SA-MP Sunucusu">
+    <meta name="twitter:description"
+        content="Zombi istilası altındaki bir dünyada hayatta kalmak için mücadele et. Türkiye'nin tek post apokaliptik senaryolu SA:MP roleplay sunucusu.">
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://www.z-roleplay.com/">
+
+    <!-- CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Saira+Condensed:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+
+
+    <!-- Structured Data (JSON-LD) -->
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "Organization",
+            "name": "Z-Roleplay",
+            "url": "https://www.z-roleplay.com",
+            "logo": "https://www.z-roleplay.com/img/zrp.jpg",
+            "description": "Z-Roleplay, Apokaliptik post-apokaliptik bir dünyada geçen Türkiye'nin tek post apokaliptik senaryolu SA:MP roleplay sunucusu.",
+            "sameAs": [
+                "https://discord.gg/4wE7W3Avef",
+                "https://www.instagram.com/#",
+                "https://www.youtube.com/c/#",
+                "https://twitter.com/#"
+            ]
+        }
+        </script>
+
+    <style>
+        body {
+            font-family: 'Saira Condensed', sans-serif;
+            background-color: #0a0a0a;
+            color: #e0e0e0;
+            background-image: url('https://images.unsplash.com/photo-1563089145-599997674d42?ixlib=rb-4.0.3');
+            background-size: cover;
+            background-attachment: fixed;
+            background-position: center;
+            background-blend-mode: multiply;
+        }
+
+        .text-dayz {
+            color: #c2c2c2;
+        }
+
+        .text-dayz-red {
+            color: #ca0000;
+        }
+
+        .bg-dayz {
+            background-color: rgba(10, 10, 10, 0.9);
+        }
+
+        .bg-dayz-red {
+            background-color: #ca0000;
+        }
+
+        .border-dayz {
+            border-color: #ca0000;
+        }
+
+        .btn-dayz {
+            background-color: #ca0000;
+            transition: all 0.3s;
+        }
+
+        .btn-dayz:hover {
+            background-color: #9c0000;
+            transform: translateY(-2px);
+        }
+
+        .nav-link {
+            position: relative;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: #ca0000;
+            transition: width 0.3s;
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        .feature-card {
+            transition: all 0.3s ease;
+            border-color: #ca0000;
+            border-width: 1px;
+            backdrop-filter: blur(3px);
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px -5px rgba(202, 0, 0, 0.3);
+            border-color: #ff0000;
+        }
+
+        .glitch-effect {
+            position: relative;
+            text-shadow: 0.05em 0 0 rgba(255, 0, 0, 0.75),
+                -0.025em -0.05em 0 rgba(200, 0, 0, 0.75),
+                0.025em 0.05em 0 rgba(150, 0, 0, 0.75);
+            animation: glitch 2s infinite;
+        }
+
+        .glowing-container {
+            box-shadow: 0 0 15px rgba(202, 0, 0, 0.3);
+            border-radius: 4px;
+            animation: subtle-glow 4s infinite alternate;
+        }
+
+        .pulse-image {
+            animation: subtle-pulse 6s infinite ease-in-out;
+        }
+
+        .corner-pulse {
+            animation: corner-glow 3s infinite alternate;
+        }
+
+        .static-noise {
+            background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMDAiIGhlaWdodD0iMzAwIj48ZmlsdGVyIGlkPSJhIiB4PSIwIiB5PSIwIj48ZmVUdXJidWxlbmNlIHR5cGU9ImZyYWN0YWxOb2lzZSIgYmFzZUZyZXF1ZW5jeT0iLjc1IiBzdGl0Y2hUaWxlcz0ic3RpdGNoIi8+PGZlQ29sb3JNYXRyaXggdHlwZT0ic2F0dXJhdGUiIHZhbHVlcz0iMCIvPjwvZmlsdGVyPjxyZWN0IHdpZHRoPSIzMDAiIGhlaWdodD0iMzAwIiBmaWx0ZXI9InVybCgjYSkiIG9wYWNpdHk9Ii4wNSIvPjwvc3ZnPg==');
+        }
+
+        @keyframes subtle-glow {
+            0% {
+                box-shadow: 0 0 15px rgba(202, 0, 0, 0.3);
+            }
+
+            50% {
+                box-shadow: 0 0 25px rgba(202, 0, 0, 0.5);
+            }
+
+            100% {
+                box-shadow: 0 0 15px rgba(202, 0, 0, 0.3);
+            }
+        }
+
+        @keyframes subtle-pulse {
+            0% {
+                opacity: 0.9;
+            }
+
+            50% {
+                opacity: 1;
+            }
+
+            100% {
+                opacity: 0.9;
+            }
+        }
+
+        @keyframes corner-glow {
+            0% {
+                opacity: 0.3;
+            }
+
+            100% {
+                opacity: 1;
+            }
+        }
+
+        /* Glitch efekti için - hover durumunda devreye girecek */
+        .glowing-container:hover::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, transparent 0%, rgba(202, 0, 0, 0.1) 50%, transparent 100%);
+            z-index: 15;
+            animation: glitch-scan 2s linear infinite;
+        }
+
+        @keyframes glitch-scan {
+            0% {
+                transform: translateY(-100%);
+            }
+
+            100% {
+                transform: translateY(100%);
+            }
+        }
+
+        @keyframes glitch {
+            0% {
+                text-shadow: 0.05em 0 0 rgba(255, 0, 0, 0.75),
+                    -0.025em -0.05em 0 rgba(200, 0, 0, 0.75),
+                    0.025em 0.05em 0 rgba(150, 0, 0, 0.75);
+            }
+
+            14% {
+                text-shadow: 0.05em 0 0 rgba(255, 0, 0, 0.75),
+                    -0.025em -0.05em 0 rgba(200, 0, 0, 0.75),
+                    0.025em 0.05em 0 rgba(150, 0, 0, 0.75);
+            }
+
+            15% {
+                text-shadow: -0.05em -0.025em 0 rgba(255, 0, 0, 0.75),
+                    0.025em 0.025em 0 rgba(200, 0, 0, 0.75),
+                    -0.05em -0.05em 0 rgba(150, 0, 0, 0.75);
+            }
+
+            49% {
+                text-shadow: -0.05em -0.025em 0 rgba(255, 0, 0, 0.75),
+                    0.025em 0.025em 0 rgba(200, 0, 0, 0.75),
+                    -0.05em -0.05em 0 rgba(150, 0, 0, 0.75);
+            }
+
+            50% {
+                text-shadow: 0.025em 0.05em 0 rgba(255, 0, 0, 0.75),
+                    0.05em 0 0 rgba(200, 0, 0, 0.75),
+                    0 -0.05em 0 rgba(150, 0, 0, 0.75);
+            }
+
+            99% {
+                text-shadow: 0.025em 0.05em 0 rgba(255, 0, 0, 0.75),
+                    0.05em 0 0 rgba(200, 0, 0, 0.75),
+                    0 -0.05em 0 rgba(150, 0, 0, 0.75);
+            }
+
+            100% {
+                text-shadow: -0.025em 0 0 rgba(255, 0, 0, 0.75),
+                    -0.025em -0.025em 0 rgba(200, 0, 0, 0.75),
+                    -0.025em -0.05em 0 rgba(150, 0, 0, 0.75);
+            }
+        }
+
+        .countdown {
+            display: flex;
+            margin: 0 auto;
+            text-align: center;
+            justify-content: center;
+        }
+
+        .countdown div {
+            margin: 0 15px;
+        }
+
+        .countdown div span {
+            display: block;
+        }
+
+        .countdown div span:first-child {
+            font-size: 3rem;
+            font-weight: 700;
+            color: #ca0000;
+        }
+
+        .blood-border {
+            border: 2px solid transparent;
+            border-image: linear-gradient(to bottom right, #ca0000, #500000);
+            border-image-slice: 1;
+        }
+
+        .section-divider {
+            height: 4px;
+            background: linear-gradient(to right, transparent, #ca0000, transparent);
+            margin: 0 auto;
+            width: 80%;
+        }
+
+        .icon-red {
+            color: #ca0000;
+        }
+
+        .bg-apocalypse {
+            background-color: rgba(0, 0, 0, 0.8);
+            box-shadow: 0 0 20px rgba(202, 0, 0, 0.2);
+        }
+
+        .zombie-pulse {
+            animation: pulse 4s infinite;
+        }
+
+        @keyframes pulse {
+            0% {
+                opacity: 0.7;
+            }
+
+            50% {
+                opacity: 1;
+            }
+
+            100% {
+                opacity: 0.7;
+            }
+        }
+
+        .coming-soon {
+            position: relative;
+            display: inline-block;
+        }
+
+        .coming-soon::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(to right, transparent, #ca0000, transparent);
+        }
+
+        .discord-highlight {
+            background: rgba(114, 137, 218, 0.1);
+            border-left: 3px solid #7289da;
+            padding-left: 1rem;
+        }
+
+        .scratched-text {
+            position: relative;
+            font-family: 'Courier New', monospace;
+            letter-spacing: 1px;
+        }
+
+        .scratched-text::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: -10px;
+            right: -10px;
+            height: 1px;
+            background: rgba(202, 0, 0, 0.3);
+            transform: rotate(-1deg);
+        }
+
+        .film-grain {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 100%;
+            background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMDAiIGhlaWdodD0iMzAwIj48ZmlsdGVyIGlkPSJhIiB4PSIwIiB5PSIwIj48ZmVUdXJidWxlbmNlIHR5cGU9ImZyYWN0YWxOb2lzZSIgYmFzZUZyZXF1ZW5jeT0iLjc1IiBzdGl0Y2hUaWxlcz0ic3RpdGNoIi8+PGZlQ29sb3JNYXRyaXggdHlwZT0ic2F0dXJhdGUiIHZhbHVlcz0iMCIvPjwvZmlsdGVyPjxyZWN0IHdpZHRoPSIzMDAiIGhlaWdodD0iMzAwIiBmaWx0ZXI9InVybCgjYSkiIG9wYWNpdHk9Ii4wNSIvPjwvc3ZnPg==');
+            pointer-events: none;
+            z-index: 1000;
+            opacity: 0.4;
+        }
+
+        .crt-lines {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 100%;
+            background: linear-gradient(to bottom,
+                    rgba(0, 0, 0, 0) 50%,
+                    rgba(0, 0, 0, 0.15) 50%);
+            background-size: 100% 4px;
+            pointer-events: none;
+            z-index: 1001;
+            opacity: 0.2;
+        }
+
+        .rusty-container {
+            background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMDAiIGhlaWdodD0iMzAwIj48ZmlsdGVyIGlkPSJhIiB4PSIwIiB5PSIwIj48ZmVUdXJidWxlbmNlIHR5cGU9ImZyYWN0YWxOb2lzZSIgYmFzZUZyZXF1ZW5jeT0iLjc1IiBzdGl0Y2hUaWxlcz0ic3RpdGNoIi8+PGZlQ29sb3JNYXRyaXggdmFsdWVzPSIwIDAgMCAwIDEgMCAwIDAgMCAwIDAgMCAwIDAgMCAwIDAgMCAwLjUgMCIvPjwvZmlsdGVyPjxyZWN0IHdpZHRoPSIzMDAiIGhlaWdodD0iMzAwIiBmaWx0ZXI9InVybCgjYSkiIG9wYWNpdHk9Ii4wNSIvPjwvc3ZnPg==');
+            background-color: rgba(0, 0, 0, 0.7);
+            backdrop-filter: blur(4px);
+        }
+
+        .pulse-border {
+            position: relative;
+        }
+
+        .pulse-border::after {
+            content: '';
+            position: absolute;
+            top: -4px;
+            left: -4px;
+            right: -4px;
+            bottom: -4px;
+            border: 1px solid #ca0000;
+            border-radius: 8px;
+            animation: pulse-border 2s infinite;
+            opacity: 0;
+        }
+
+        @keyframes pulse-border {
+            0% {
+                opacity: 0;
+            }
+
+            50% {
+                opacity: 1;
+                transform: scale(1.05);
+            }
+
+            100% {
+                opacity: 0;
+                transform: scale(1.1);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="film-grain"></div>
+    <div class="crt-lines"></div>
+    <header class="bg-dayz fixed w-full z-10 border-b border-dayz">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <div class="flex items-center">
+                <div class="flex items-center">
+                    <img src="img/logo-transparenttt.png" alt="Z-Roleplay Logo" class="h-11">
+                    <h1 class="text-xl font-bold text-white glitch-effect ml-0 -ml-1 tracking-tight">ROLEPLAY</h1>
+                </div>
+            </div>
+            <nav class="hidden md:flex items-center space-x-8">
+                <a href="#home" class="nav-link text-gray-300 hover:text-white font-medium">ANA SAYFA</a>
+                <a href="#about" class="nav-link text-gray-300 hover:text-white font-medium">HAKKINDA</a>
+                <a href="#features" class="nav-link text-gray-300 hover:text-white font-medium">ÖZELLİKLER</a>
+                <a href="https://discord.gg/4wE7W3Avef" class="nav-link text-gray-300 hover:text-white font-medium"
+                    target="_blank" rel="noopener noreferrer">DISCORD</a>
+                <!-- <a href="#gallery"
+                    class="nav-link text-gray-300 hover:text-white font-medium">GALERİ</a> -->
+            </nav>
+            <button class="md:hidden focus:outline-none">
+                <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16">
+                    </path>
+                </svg>
+            </button>
+        </div>
+    </header>
+
+    <section id="home" class="relative pt-24 pb-16 md:pt-32 md:pb-24 min-h-screen flex items-center">
+        <div class="absolute inset-0 bg-black opacity-70 z-0"></div>
+        <div class="container mx-auto px-4 relative z-1">
+            <div class="flex flex-col items-center text-center">
+                <div class="mb-6 relative">
+                    <img src="img/text.jpeg" alt="Z-Roleplay Logo" class="max-w-full md:max-w-lg mx-auto">
+                </div>
+                <p class="text-lg md:text-xl text-gray-400 mb-8 max-w-3xl"><span class="text-dayz-red">Zombi
+                        istilasının</span> ortasında hayatta kalma mücadelene hoş geldin. Kaynaklar kısıtlı, tehlike
+                    her yerde... <span class="italic">Hayatta kalabilecek misin?</span></p>
+
+                <!-- <div class="my-8 bg-apocalypse p-4 rounded-lg blood-border inline-block">
+                    <h2 class="text-2xl font-bold text-dayz-red coming-soon">ÇOK YAKINDA GELİYOR</h2>
+                </div> -->
+
+                <div class="flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-6 mt-4">
+                    <a href="https://discord.gg/4wE7W3Avef"
+                        class="btn-dayz py-3 px-8 rounded-md font-semibold uppercase tracking-wider shadow-lg pulse-border">
+                        <i class="fab fa-discord mr-2"></i> Discord'a Katıl
+                    </a>
+                    <a href="#about"
+                        class="border-2 border-dayz py-3 px-8 rounded-md font-semibold uppercase tracking-wider hover:bg-dayz-red hover:border-dayz-red transition-all">
+                        Daha Fazla Bilgi
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="py-16 bg-dayz">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-12 glitch-effect">SUNUCU <span
+                    class="text-dayz-red">HAKKINDA</span></h2>
+
+            <div class="rusty-container p-6 md:p-10 rounded-lg blood-border max-w-4xl mx-auto">
+                <div class="flex flex-col space-y-8">
+                    <div class="text-center">
+                        <div class="mb-4 text-center">
+                            <i class="fas fa-skull-crossbones text-dayz-red text-4xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-4">Zombi İstilası Altında Bir Dünya</h3>
+                        <p class="text-dayz mx-auto max-w-2xl">Z-Roleplay, bilinmeyen bir virüsün zombi salgınına
+                            dönüştüğü post-apokaliptik bir dünyada geçiyor. Şehirler terk edilmiş, kaynaklar sınırlı ve
+                            her köşe tehlikeleyle dolu.</p>
+                    </div>
+
+                    <hr class="border-gray-800 w-3/4 mx-auto">
+
+                    <div class="text-center">
+                        <div class="mb-4 text-center">
+                            <i class="fas fa-users text-dayz-red text-4xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-4">Hayatta Kalan Topluluğu</h3>
+                        <p class="text-dayz mx-auto max-w-2xl">Hayatta kalanlar küçük topluluklar oluşturdular. Kimi
+                            yardımsever, kimi acımasız. Hangi tarafa katılacağın ve kime güveneceğin tamamen sana bağlı.
+                        </p>
+                    </div>
+
+                    <hr class="border-gray-800 w-3/4 mx-auto">
+
+                    <div class="text-center">
+                        <div class="mb-4 text-center">
+                            <i class="fas fa-campground text-dayz-red text-4xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-4">Gerçek Hayatta Kalma</h3>
+                        <p class="text-dayz mx-auto max-w-2xl">Açlık, susuzluk, hastalıklar, yaralanmalar - tüm bunlar
+                            hayatta kalmanı zorlaştıracak. Kaynakları akıllıca kullanmalı ve stratejini iyi
+                            belirlemelisin.</p>
+                    </div>
+
+                    <hr class="border-gray-800 w-3/4 mx-auto">
+
+                    <div class="text-center">
+                        <div class="mb-4 text-center">
+                            <i class="fas fa-theater-masks text-dayz-red text-4xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-4">Sürükleyici Roleplay</h3>
+                        <p class="text-dayz mx-auto max-w-2xl">Karakterini canlandır, kendi hikayeni yaz ve bu tehlikeli
+                            dünyada iz bırak. Z-Roleplay, zengin roleplay deneyimi sunar.</p>
+                    </div>
+                </div>
+
+                <div class="mt-12 p-4 bg-black rounded-md text-center">
+                    <!-- <span class="scratched-text text-gray-400">Z-Roleplay şu anda geliştirilme aşamasındadır.</span> -->
+                    <p class="text-dayz-red mt-2 font-bold">Sunucumuz çok yakında aktif olacak, şimdilik Discord'a
+                        katılarak güncellemelerden haberdar olabilirsiniz!</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="section-divider my-0"></div>
+
+    <!-- <section id="discord" class="py-16 bg-gradient-to-r from-gray-900 to-black">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-3xl md:text-4xl font-bold mb-8 glitch-effect">DISCORD <span
+                    class="text-dayz-red">TOPLULUĞUMUZA</span> KATIL</h2>
+            <p class="text-xl mb-8 max-w-2xl mx-auto">Sunucu güncellemeleri, gelişim aşamaları ve topluluğumuzla
+                etkileşim için <span class="text-dayz-red font-semibold">aktif</span> Discord sunucumuza katıl!</p>
+
+            <div class="bg-dayz rounded-lg p-8 max-w-4xl mx-auto shadow-2xl blood-border pulse-border">
+                <div class="flex flex-col md:flex-row items-center justify-between">
+                    <div class="mb-6 md:mb-0">
+                        <h3 class="text-2xl font-bold mb-2">Z-Roleplay Discord</h3>
+                        <p class="text-dayz mb-4">Discord'da seni bekliyoruz!</p>
+                        <div class="discord-highlight p-3 mb-4 rounded">
+                            <p class="mb-2 font-mono" id="discord-link-text">discord.gg/4wE7W3Avef</p>
+                            <button type="button" onclick="copyDiscordLink()"
+                                class="bg-gray-800 text-white px-3 py-1 rounded text-sm hover:bg-gray-700"
+                                id="copy-btn">
+                                Kopyala
+                            </button>
+                        </div>
+                        <a href="https://discord.gg/4wE7W3Avef" target="_blank" rel="noopener noreferrer"
+                            onclick="window.open('https://discord.gg/4wE7W3Avef', '_blank')"
+                            class="inline-block bg-dayz-red hover:bg-red-800 py-3 px-8 rounded-md font-semibold uppercase tracking-wider transition-all">
+                            <i class="fab fa-discord mr-2"></i> Şimdi Katıl
+                        </a>
+                    </div>
+                    <div class="w-full md:w-1/2">
+                        <div class="overflow-hidden rounded-lg border-2 border-dayz shadow-lg">
+                            <a href="https://discord.gg/4wE7W3Avef" target="_blank" rel="noopener noreferrer">
+                                <img src="https://discordapp.com/api/guilds/1041992224256311306/widget.png?style=banner2"
+                                    alt="Discord Preview" class="w-full">
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mt-8 pt-6 border-t border-gray-800">
+                    <h3 class="text-xl font-bold mb-3 text-dayz-red">Neden Discord'a Katılmalısın?</h3>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-left">
+                        <div class="bg-black p-3 rounded">
+                            <i class="fas fa-bell mr-2 text-dayz-red"></i>
+                            <span>Güncellemelerden ilk sen haberdar ol</span>
+                        </div>
+                        <div class="bg-black p-3 rounded">
+                            <i class="fas fa-users mr-2 text-dayz-red"></i>
+                            <span>Toplulukla tanış ve arkadaş edin</span>
+                        </div>
+                        <div class="bg-black p-3 rounded">
+                            <i class="fas fa-comments mr-2 text-dayz-red"></i>
+                            <span>Önerilerde bulun, gelişime katkıda bulun</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section> -->
+
+    <div class="section-divider my-0"></div>
+
+    <section id="features" class="py-16 bg-gradient-to-b from-black to-gray-900">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-12 glitch-effect">SUNUCU <span
+                    class="text-dayz-red">ÖZELLİKLERİ</span></h2>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="feature-card bg-dayz p-6 rounded-lg">
+                    <div class="text-3xl icon-red mb-4">
+                        <i class="fas fa-skull"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Gelişmiş Zombi Sistemi</h3>
+                    <p class="text-dayz">Farklı türlerde ve zorluklarda zombilerle dolu bir dünya. Hayatta kalmak için
+                        stratejini iyi belirle!</p>
+                </div>
+
+                <div class="feature-card bg-dayz p-6 rounded-lg">
+                    <div class="text-3xl icon-red mb-4">
+                        <i class="fas fa-utensils"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Açlık ve Susuzluk Sistemi</h3>
+                    <p class="text-dayz">Gerçekçi yaşam mekanikleri. Yiyecek ve içecek bulamazsan hayatta kalamazsın.
+                    </p>
+                </div>
+
+                <div class="feature-card bg-dayz p-6 rounded-lg">
+                    <div class="text-3xl icon-red mb-4">
+                        <i class="fas fa-medkit"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Detaylı Yaralanma Sistemi</h3>
+                    <p class="text-dayz">Kırıklar, kanamalar ve enfeksiyonlar. Sağlık durumuna dikkat et ve ilk yardım
+                        malzemelerini akıllıca kullan.</p>
+                </div>
+
+                <div class="feature-card bg-dayz p-6 rounded-lg">
+                    <div class="text-3xl icon-red mb-4">
+                        <i class="fas fa-hammer"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Gelişmiş Craft Sistemi</h3>
+                    <p class="text-dayz">Bulduğun malzemelerle silah, araç, barınak ve ekipman yap. Kaynakları iyi
+                        yönet.</p>
+                </div>
+
+                <div class="feature-card bg-dayz p-6 rounded-lg">
+                    <div class="text-3xl icon-red mb-4">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Topluluk Sistemi</h3>
+                    <p class="text-dayz">Kendi topluluğunu oluştur veya bir topluluğa katıl.. Birlik olmak hayatta kalma
+                        şansını
+                        artırır.</p>
+                </div>
+
+                <div class="feature-card bg-dayz p-6 rounded-lg">
+                    <div class="text-3xl icon-red mb-4">
+                        <i class="fas fa-home"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Base İnşa Etme</h3>
+                    <p class="text-dayz">Güvenli sığınaklar inşa et, elinden geldiğince savunmaya çalış.</p>
+                </div>
+            </div>
+
+            <div class="mt-12 text-center">
+                <p class="text-xl text-dayz-red mb-2">ve çok daha fazlası...</p>
+                <p class="text-gray-400">Diğer tüm özellikleri ve gelişim sürecini görüntüleyebilmek için Discord
+                    sunucumuza katıl.</p>
+            </div>
+        </div>
+    </section>
+
+    <div class="section-divider my-0"></div>
+    <section class="py-16 bg-dayz">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-12 glitch-effect">GELİŞİM <span
+                    class="text-dayz-red">SÜRECİ</span></h2>
+
+            <div class="max-w-4xl mx-auto rusty-container p-8 rounded-lg blood-border">
+                <div class="relative">
+                    <div
+                        class="absolute left-0 md:left-1/2 top-0 bottom-0 w-1 bg-dayz-red transform md:translateX(-0.5px)">
+                    </div>
+                    <div class="timeline-container">
+                        <div class="flex flex-col md:flex-row mb-10">
+                            <div class="md:w-1/2 md:pr-8 md:text-right mb-4 md:mb-0">
+                                <h3 class="text-xl font-bold text-gray-500">Tam Sürüm</h3>
+                                <p class="text-gray-500 mt-2">
+                                    Z-Roleplay tam sürüm lansmanı.
+                                    <span class="text-gray-600 text-sm ml-2">[GELECEK]</span>
+                                </p>
+                            </div>
+                            <div class="md:w-1/2 md:pl-8 flex items-center md:justify-start justify-center">
+                                <div
+                                    class="w-10 h-10 rounded-full bg-gray-800 border-4 border-black z-10 flex items-center justify-center">
+                                    <i class="fas fa-check text-gray-500"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="flex flex-col md:flex-row mb-10">
+                            <div class="md:w-1/2 md:pr-8 md:text-right order-2 md:order-1">
+                                <div
+                                    class="w-10 h-10 rounded-full bg-gray-800 border-4 border-black z-10 flex items-center justify-center ml-auto">
+                                    <i class="fas fa-hourglass-half text-gray-500"></i>
+                                </div>
+                            </div>
+                            <div class="md:w-1/2 md:pl-8 order-1 md:order-2 mb-4 md:mb-0">
+                                <h3 class="text-xl font-bold text-gray-500">Beta Test</h3>
+                                <p class="text-gray-500 mt-2">
+                                    Sınırlı katılımcılarla beta test süreci.
+                                    <span class="text-gray-600 text-sm ml-2">[YAKINDA]</span>
+                                </p>
+                            </div>
+                        </div>
+                        <div class="flex flex-col md:flex-row mb-10">
+                            <div class="md:w-1/2 md:pr-8 md:text-right mb-4 md:mb-0">
+                                <h3 class="text-xl font-bold">Geliştirme Aşaması</h3>
+                                <p class="text-dayz mt-2">
+                                    Temel kodlama ve sunucu yapısı oluşturuluyor.
+                                    <span class="bg-yellow-600 text-black text-xs px-2 py-1 rounded ml-2">DEVAM
+                                        EDİYOR</span>
+                                </p>
+                            </div>
+                            <div class="md:w-1/2 md:pl-8 flex items-center md:justify-start justify-center">
+                                <div
+                                    class="w-10 h-10 rounded-full bg-dayz-red border-4 border-black z-10 flex items-center justify-center">
+                                    <i class="fas fa-hammer text-white"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="flex flex-col md:flex-row">
+                            <div class="md:w-1/2 md:pr-8 md:text-right order-2 md:order-1">
+                                <div
+                                    class="w-10 h-10 rounded-full bg-dayz-red border-4 border-black z-10 flex items-center justify-center ml-auto">
+                                    <i class="fas fa-check text-white"></i>
+                                </div>
+                            </div>
+                            <div class="md:w-1/2 md:pl-8 order-1 md:order-2 mb-4 md:mb-0">
+                                <h3 class="text-xl font-bold text-dayz-red">Planlama Aşaması</h3>
+                                <p class="text-dayz mt-2">
+                                    Sunucu konsepti, tema ve özellikler belirleniyor. Discord topluluğu kuruldu.
+                                    <span class="text-green-400 text-sm ml-2">[TAMAMLANDI]</span>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="section-divider my-0"></div>
+    <!-- <section id="gallery" class="py-16 bg-gradient-to-b from-gray-900 to-black">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-12 glitch-effect">SCREENSHOT <span
+                    class="text-dayz-red">GALERİSİ</span></h2>
+
+            <div class="relative">
+                <div class="text-center mb-8">
+                    <p class="text-xl text-dayz-red mb-2">Geliştirme Aşamasından Görüntüler</p>
+                    <p class="text-gray-400 max-w-2xl mx-auto">Sunucumuz henüz geliştirme aşamasında. Daha fazla
+                        screenshot için Discord sunucumuzu takip edebilirsin.</p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-6">
+                    <div
+                        class="overflow-hidden rounded-lg border-2 border-dayz group hover:border-dayz-red transition-all duration-300 relative">
+                        <div class="absolute inset-0 bg-black bg-opacity-70 flex items-center justify-center">
+                            <p class="text-dayz-red font-bold text-xl">Geliştirme Görüntüleri Çok Yakında</p>
+                        </div>
+                        <img src="https://via.placeholder.com/600x300/1a1a1a/ca0000?text=Z-Roleplay"
+                            alt="" class="w-full h-64 object-cover opacity-30">
+                    </div>
+
+                    <div
+                        class="overflow-hidden rounded-lg border-2 border-dayz group hover:border-dayz-red transition-all duration-300 relative">
+                        <div class="absolute inset-0 bg-black bg-opacity-70 flex items-center justify-center">
+                            <p class="text-dayz-red font-bold text-xl">Geliştirme Görüntüleri Çok Yakında</p>
+                        </div>
+                        <img src="https://via.placeholder.com/600x300/1a1a1a/ca0000?text=Z-Roleplay"
+                            alt="" class="w-full h-64 object-cover opacity-30">
+                    </div>
+                </div>
+
+                <div class="mt-12 text-center">
+                    <a href="https://discord.gg/4wE7W3Avef"
+                        class="btn-dayz py-3 px-8 rounded-md font-semibold uppercase tracking-wider shadow-lg inline-block">
+                        <i class="fab fa-discord mr-2"></i> Discord'da Daha Fazla Görseli Gör
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section> -->
+
+    <footer class="bg-black py-8 border-t border-dayz">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-6 md:mb-0 flex items-center">
+                    <div class="flex items-center">
+                        <img src="img/logo-transparenttt.png" alt="Z-Roleplay Logo" class="h-11">
+                        <h1 class="text-xl font-bold text-white glitch-effect ml-0 -ml-1 tracking-tight">ROLEPLAY</h1>
+                    </div>
+                </div>
+
+                <div class="text-center mb-6 md:mb-0">
+                    <!-- <p class="text-gray-500 mb-2">Bizi takip edin</p> -->
+                    <div class="flex space-x-4">
+                        <a href="https://discord.gg/4wE7W3Avef"
+                            class="text-gray-400 hover:text-dayz-red transition-colors">
+                            <i class="fab fa-discord text-xl"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-dayz-red transition-colors">
+                            <i class="fab fa-instagram text-xl"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-dayz-red transition-colors">
+                            <i class="fab fa-youtube text-xl"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-dayz-red transition-colors">
+                            <i class="fab fa-twitter text-xl"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="text-sm text-gray-600">
+                    <p>&copy; 2025 Z-Roleplay. Tüm hakları saklıdır.</p>
+                    <p class="text-xs text-gray-700 mt-1">Bu site Z-Roleplay geliştirici ekibi tarafından
+                        geliştirilmiştir.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var copyBtn = document.getElementById('copy-btn');
+            if (copyBtn) {
+                copyBtn.addEventListener('click', function () {
+                    var textToCopy = document.getElementById('discord-link-text').innerText;
+
+                    var textArea = document.createElement("textarea");
+                    textArea.value = textToCopy;
+                    textArea.style.position = "fixed";
+                    document.body.appendChild(textArea);
+                    textArea.focus();
+                    textArea.select();
+
+                    try {
+                        var successful = document.execCommand('copy');
+                        var msg = successful ? 'başarılı' : 'başarısız';
+                        console.log('Kopyalama ' + msg);
+
+                        copyBtn.textContent = 'Kopyalandı!';
+                        copyBtn.classList.add('bg-green-700');
+
+                        setTimeout(function () {
+                            copyBtn.textContent = 'Kopyala';
+                            copyBtn.classList.remove('bg-green-700');
+                        }, 2000);
+                    } catch (err) {
+                        console.error('Kopyalama hatası: ', err);
+                    }
+
+                    document.body.removeChild(textArea);
+                });
+            }
+            var discordLinks = document.querySelectorAll('a[href^="https://discord.gg"]');
+            discordLinks.forEach(function (link) {
+                link.setAttribute('target', '_blank');
+                link.setAttribute('rel', 'noopener noreferrer');
+            });
+            var menuBtn = document.querySelector('header button');
+            var mobileNav = document.querySelector('header nav');
+
+            if (menuBtn && mobileNav) {
+                menuBtn.addEventListener('click', function () {
+                    if (mobileNav.classList.contains('hidden')) {
+                        mobileNav.classList.remove('hidden');
+                        mobileNav.classList.add('flex', 'flex-col', 'absolute', 'top-16', 'left-0', 'w-full', 'bg-dayz', 'py-4', 'px-4', 'z-20');
+                    } else {
+                        mobileNav.classList.add('hidden');
+                        mobileNav.classList.remove('flex', 'flex-col', 'absolute', 'top-16', 'left-0', 'w-full', 'bg-dayz', 'py-4', 'px-4', 'z-20');
+                    }
+                });
+            }
+
+            document.querySelectorAll('a[href^="#"]').forEach(function (anchor) {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    var target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        window.scrollTo({
+                            top: target.offsetTop,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+        });
+    </script>
+
+</body>
+
+</html>
