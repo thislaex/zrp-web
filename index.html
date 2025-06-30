@@ -43,8 +43,11 @@
         rel="stylesheet">
 
     <!-- Font Awesome -->
-    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+        integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- Tailwindcss CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
 
     <!-- Structured Data (JSON-LD) -->
     <script type="application/ld+json">
@@ -448,13 +451,13 @@
                 </div>
             </div>
             <nav class="hidden md:flex items-center space-x-8">
-                <a href="#home" class="nav-link text-gray-300 hover:text-white font-medium">ANA SAYFA</a>
-                <a href="#about" class="nav-link text-gray-300 hover:text-white font-medium">HAKKINDA</a>
-                <a href="#features" class="nav-link text-gray-300 hover:text-white font-medium">ÖZELLİKLER</a>
-                <a href="https://discord.gg/4wE7W3Avef" class="nav-link text-gray-300 hover:text-white font-medium"
+                <a href="#home" class="nav-link text-zinc-300 hover:text-white font-medium">ANA SAYFA</a>
+                <a href="#about" class="nav-link text-zinc-300 hover:text-white font-medium">HAKKINDA</a>
+                <a href="#features" class="nav-link text-zinc-300 hover:text-white font-medium">ÖZELLİKLER</a>
+                <a href="https://discord.gg/4wE7W3Avef" class="nav-link text-zinc-300 hover:text-white font-medium"
                     target="_blank" rel="noopener noreferrer">DISCORD</a>
                 <!-- <a href="#gallery"
-                    class="nav-link text-gray-300 hover:text-white font-medium">GALERİ</a> -->
+                    class="nav-link text-zinc-300 hover:text-white font-medium">GALERİ</a> -->
             </nav>
             <button class="md:hidden focus:outline-none">
                 <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"
@@ -466,21 +469,26 @@
         </div>
     </header>
 
-    <section id="home" class="relative pt-24 pb-16 md:pt-32 md:pb-24 min-h-screen flex items-center">
-        <div class="absolute inset-0 bg-black opacity-70 z-0"></div>
-        <div class="container mx-auto px-4 relative z-1">
+    <section id="home" class="relative pt-24 pb-16 md:pt-32 md:pb-24 min-h-screen flex items-center overflow-hidden">
+
+        <div class="absolute inset-0 z-[-1] overflow-hidden pointer-events-none">
+            <iframe
+                src="https://www.youtube.com/embed/gNO7wHtTXsg?autoplay=1&mute=1&loop=1&playlist=gNO7wHtTXsg&controls=0&showinfo=0&modestbranding=1&rel=0"
+                frameborder="0" allow="autoplay; encrypted-media" allowfullscreen
+                class="w-full h-full absolute top-0 left-0 object-cover scale-125"></iframe>
+        </div>
+
+        <div class="absolute inset-0 bg-gradient-to-t from-black via-black/70 to-black/20 z-0"></div>
+
+        <div class="container mx-auto px-4 relative z-10">
             <div class="flex flex-col items-center text-center">
                 <div class="mb-6 relative">
                     <img src="img/text.jpeg" alt="Z-Roleplay Logo" class="max-w-full md:max-w-lg mx-auto">
                 </div>
-                <p class="text-lg md:text-xl text-gray-400 mb-8 max-w-3xl"><span class="text-dayz-red">Zombi
-                        istilasının</span> ortasında hayatta kalma mücadelene hoş geldin. Kaynaklar kısıtlı, tehlike
-                    her yerde... <span class="italic">Hayatta kalabilecek misin?</span></p>
-
-                <!-- <div class="my-8 bg-apocalypse p-4 rounded-lg blood-border inline-block">
-                    <h2 class="text-2xl font-bold text-dayz-red coming-soon">ÇOK YAKINDA GELİYOR</h2>
-                </div> -->
-
+                <p class="text-lg md:text-xl text-zinc-400 mb-8 max-w-3xl">
+                    <span class="text-dayz-red">Zombi istilasının</span> ortasında hayatta kalma mücadelene hoş geldin.
+                    Kaynaklar kısıtlı, tehlike her yerde... <span class="italic">Hayatta kalabilecek misin?</span>
+                </p>
                 <div class="flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-6 mt-4">
                     <a href="https://discord.gg/4wE7W3Avef"
                         class="btn-dayz py-3 px-8 rounded-md font-semibold uppercase tracking-wider shadow-lg pulse-border">
@@ -490,6 +498,7 @@
                         class="border-2 border-dayz py-3 px-8 rounded-md font-semibold uppercase tracking-wider hover:bg-dayz-red hover:border-dayz-red transition-all">
                         Daha Fazla Bilgi
                     </a>
+
                 </div>
             </div>
         </div>
@@ -512,7 +521,7 @@
                             her köşe tehlikeleyle dolu.</p>
                     </div>
 
-                    <hr class="border-gray-800 w-3/4 mx-auto">
+                    <hr class="border-zinc-800 w-3/4 mx-auto">
 
                     <div class="text-center">
                         <div class="mb-4 text-center">
@@ -524,7 +533,7 @@
                         </p>
                     </div>
 
-                    <hr class="border-gray-800 w-3/4 mx-auto">
+                    <hr class="border-zinc-800 w-3/4 mx-auto">
 
                     <div class="text-center">
                         <div class="mb-4 text-center">
@@ -536,7 +545,7 @@
                             belirlemelisin.</p>
                     </div>
 
-                    <hr class="border-gray-800 w-3/4 mx-auto">
+                    <hr class="border-zinc-800 w-3/4 mx-auto">
 
                     <div class="text-center">
                         <div class="mb-4 text-center">
@@ -549,7 +558,7 @@
                 </div>
 
                 <div class="mt-12 p-4 bg-black rounded-md text-center">
-                    <!-- <span class="scratched-text text-gray-400">Z-Roleplay şu anda geliştirilme aşamasındadır.</span> -->
+                    <!-- <span class="scratched-text text-zinc-400">Z-Roleplay şu anda geliştirilme aşamasındadır.</span> -->
                     <p class="text-dayz-red mt-2 font-bold">Sunucumuz çok yakında aktif olacak, şimdilik Discord'a
                         katılarak güncellemelerden haberdar olabilirsiniz!</p>
                 </div>
@@ -559,7 +568,7 @@
 
     <div class="section-divider my-0"></div>
 
-    <!-- <section id="discord" class="py-16 bg-gradient-to-r from-gray-900 to-black">
+    <!-- <section id="discord" class="py-16 bg-gradient-to-r from-zinc-900 to-black">
         <div class="container mx-auto px-4 text-center">
             <h2 class="text-3xl md:text-4xl font-bold mb-8 glitch-effect">DISCORD <span
                     class="text-dayz-red">TOPLULUĞUMUZA</span> KATIL</h2>
@@ -574,7 +583,7 @@
                         <div class="discord-highlight p-3 mb-4 rounded">
                             <p class="mb-2 font-mono" id="discord-link-text">discord.gg/4wE7W3Avef</p>
                             <button type="button" onclick="copyDiscordLink()"
-                                class="bg-gray-800 text-white px-3 py-1 rounded text-sm hover:bg-gray-700"
+                                class="bg-zinc-800 text-white px-3 py-1 rounded text-sm hover:bg-zinc-700"
                                 id="copy-btn">
                                 Kopyala
                             </button>
@@ -595,7 +604,7 @@
                     </div>
                 </div>
 
-                <div class="mt-8 pt-6 border-t border-gray-800">
+                <div class="mt-8 pt-6 border-t border-zinc-800">
                     <h3 class="text-xl font-bold mb-3 text-dayz-red">Neden Discord'a Katılmalısın?</h3>
                     <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-left">
                         <div class="bg-black p-3 rounded">
@@ -618,7 +627,7 @@
 
     <div class="section-divider my-0"></div>
 
-    <section id="features" class="py-16 bg-gradient-to-b from-black to-gray-900">
+    <section id="features" class="py-16 bg-gradient-to-b from-black to-zinc-900">
         <div class="container mx-auto px-4">
             <h2 class="text-3xl md:text-4xl font-bold text-center mb-12 glitch-effect">SUNUCU <span
                     class="text-dayz-red">ÖZELLİKLERİ</span></h2>
@@ -681,7 +690,7 @@
 
             <div class="mt-12 text-center">
                 <p class="text-xl text-dayz-red mb-2">ve çok daha fazlası...</p>
-                <p class="text-gray-400">Diğer tüm özellikleri ve gelişim sürecini görüntüleyebilmek için Discord
+                <p class="text-zinc-400">Diğer tüm özellikleri ve gelişim sürecini görüntüleyebilmek için Discord
                     sunucumuza katıl.</p>
             </div>
         </div>
@@ -701,31 +710,31 @@
                     <div class="timeline-container">
                         <div class="flex flex-col md:flex-row mb-10">
                             <div class="md:w-1/2 md:pr-8 md:text-right mb-4 md:mb-0">
-                                <h3 class="text-xl font-bold text-gray-500">Tam Sürüm</h3>
-                                <p class="text-gray-500 mt-2">
+                                <h3 class="text-xl font-bold text-zinc-500">Tam Sürüm</h3>
+                                <p class="text-zinc-500 mt-2">
                                     Z-Roleplay tam sürüm lansmanı.
-                                    <span class="text-gray-600 text-sm ml-2">[GELECEK]</span>
+                                    <span class="text-zinc-600 text-sm ml-2">[GELECEK]</span>
                                 </p>
                             </div>
                             <div class="md:w-1/2 md:pl-8 flex items-center md:justify-start justify-center">
                                 <div
-                                    class="w-10 h-10 rounded-full bg-gray-800 border-4 border-black z-10 flex items-center justify-center">
-                                    <i class="fas fa-check text-gray-500"></i>
+                                    class="w-10 h-10 rounded-full bg-zinc-800 border-4 border-black z-10 flex items-center justify-center">
+                                    <i class="fas fa-check text-zinc-500"></i>
                                 </div>
                             </div>
                         </div>
                         <div class="flex flex-col md:flex-row mb-10">
                             <div class="md:w-1/2 md:pr-8 md:text-right order-2 md:order-1">
                                 <div
-                                    class="w-10 h-10 rounded-full bg-gray-800 border-4 border-black z-10 flex items-center justify-center ml-auto">
-                                    <i class="fas fa-hourglass-half text-gray-500"></i>
+                                    class="w-10 h-10 rounded-full bg-zinc-800 border-4 border-black z-10 flex items-center justify-center ml-auto">
+                                    <i class="fas fa-hourglass-half text-zinc-500"></i>
                                 </div>
                             </div>
                             <div class="md:w-1/2 md:pl-8 order-1 md:order-2 mb-4 md:mb-0">
-                                <h3 class="text-xl font-bold text-gray-500">Beta Test</h3>
-                                <p class="text-gray-500 mt-2">
+                                <h3 class="text-xl font-bold text-zinc-500">Beta Test</h3>
+                                <p class="text-zinc-500 mt-2">
                                     Sınırlı katılımcılarla beta test süreci.
-                                    <span class="text-gray-600 text-sm ml-2">[YAKINDA]</span>
+                                    <span class="text-zinc-600 text-sm ml-2">[YAKINDA]</span>
                                 </p>
                             </div>
                         </div>
@@ -740,7 +749,7 @@
                             </div>
                             <div class="md:w-1/2 md:pl-8 flex items-center md:justify-start justify-center">
                                 <div
-                                    class="w-10 h-10 rounded-full bg-dayz-red border-4 border-black z-10 flex items-center justify-center">
+                                    class="w-10 h-10 rounded-full animate-pulse bg-dayz-red border-4 border-black z-10 flex items-center justify-center">
                                     <i class="fas fa-hammer text-white"></i>
                                 </div>
                             </div>
@@ -767,7 +776,7 @@
     </section>
 
     <div class="section-divider my-0"></div>
-    <!-- <section id="gallery" class="py-16 bg-gradient-to-b from-gray-900 to-black">
+    <!-- <section id="gallery" class="py-16 bg-gradient-to-b from-zinc-900 to-black">
         <div class="container mx-auto px-4">
             <h2 class="text-3xl md:text-4xl font-bold text-center mb-12 glitch-effect">SCREENSHOT <span
                     class="text-dayz-red">GALERİSİ</span></h2>
@@ -775,7 +784,7 @@
             <div class="relative">
                 <div class="text-center mb-8">
                     <p class="text-xl text-dayz-red mb-2">Geliştirme Aşamasından Görüntüler</p>
-                    <p class="text-gray-400 max-w-2xl mx-auto">Sunucumuz henüz geliştirme aşamasında. Daha fazla
+                    <p class="text-zinc-400 max-w-2xl mx-auto">Sunucumuz henüz geliştirme aşamasında. Daha fazla
                         screenshot için Discord sunucumuzu takip edebilirsin.</p>
                 </div>
 
@@ -820,27 +829,27 @@
                 </div>
 
                 <div class="text-center mb-6 md:mb-0">
-                    <!-- <p class="text-gray-500 mb-2">Bizi takip edin</p> -->
+                    <!-- <p class="text-zinc-500 mb-2">Bizi takip edin</p> -->
                     <div class="flex space-x-4">
                         <a href="https://discord.gg/4wE7W3Avef"
-                            class="text-gray-400 hover:text-dayz-red transition-colors">
+                            class="text-zinc-400 hover:text-dayz-red transition-colors">
                             <i class="fab fa-discord text-xl"></i>
                         </a>
-                        <a href="#" class="text-gray-400 hover:text-dayz-red transition-colors">
+                        <a href="#" class="text-zinc-400 hover:text-dayz-red transition-colors">
                             <i class="fab fa-instagram text-xl"></i>
                         </a>
-                        <a href="#" class="text-gray-400 hover:text-dayz-red transition-colors">
+                        <a href="#" class="text-zinc-400 hover:text-dayz-red transition-colors">
                             <i class="fab fa-youtube text-xl"></i>
                         </a>
-                        <a href="#" class="text-gray-400 hover:text-dayz-red transition-colors">
+                        <a href="#" class="text-zinc-400 hover:text-dayz-red transition-colors">
                             <i class="fab fa-twitter text-xl"></i>
                         </a>
                     </div>
                 </div>
 
-                <div class="text-sm text-gray-600">
+                <div class="text-sm text-zinc-500">
                     <p>&copy; 2025 Z-Roleplay. Tüm hakları saklıdır.</p>
-                    <p class="text-xs text-gray-700 mt-1">Bu site Z-Roleplay geliştirici ekibi tarafından
+                    <p class="text-xs text-zinc-600 mt-1">Bu site Z-Roleplay geliştirici ekibi tarafından
                         geliştirilmiştir.</p>
                 </div>
             </div>
