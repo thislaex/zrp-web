@@ -42,6 +42,10 @@
     <link href="https://fonts.googleapis.com/css2?family=Saira+Condensed:wght@300;400;500;600;700&display=swap"
         rel="stylesheet">
 
+    <!-- Tippy.js -->
+    <link rel="stylesheet" href="https://unpkg.com/tippy.js@6/animations/shift-toward.css" />
+    <link rel="stylesheet" href="https://unpkg.com/tippy.js@6/themes/light.css" />
+
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
         integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
@@ -436,6 +440,45 @@
                 transform: scale(1.1);
             }
         }
+
+        .feature-card {
+                position: relative;
+                overflow: hidden;
+                transition: box-shadow 0.3s;
+            }
+            .feature-card::before {
+                content: "";
+                position: absolute;
+                top: -75%;
+                left: -75%;
+                width: 250%;
+                height: 250%;
+                background: linear-gradient(
+                    120deg,
+                    rgba(255,255,255,0) 0%,
+                    rgba(255,255,255,0.15) 40%,
+                    rgba(255, 0, 0, 0.25) 50%,
+                    rgba(255, 0, 0, 0.15) 60%,
+                    rgba(255, 1, 1, 0) 100%
+                );
+                transform: rotate(10deg) scale(1.2);
+                opacity: 0;
+                pointer-events: none;
+                transition: opacity 0.3s, transform 0.6s cubic-bezier(.4,2,.6,1);
+                z-index: 1;
+            }
+            .feature-card:hover::before {
+                opacity: 1;
+                transform: translateX(60%) rotate(10deg) scale(1.2);
+                transition: opacity 0.2s, transform 0.6s cubic-bezier(.4,2,.6,1);
+            }
+            .feature-card:hover {
+                box-shadow: 0 0 32px 0 rgba(255,255,255,0.10), 0 2px 16px 0 rgba(220,38,38,0.15);
+            }
+            .feature-card > * {
+                position: relative;
+                z-index: 2;
+            }
     </style>
 </head>
 
@@ -453,6 +496,8 @@
             <nav class="hidden md:flex items-center space-x-8">
                 <a href="#home" class="nav-link text-zinc-300 hover:text-white font-medium">ANA SAYFA</a>
                 <a href="#about" class="nav-link text-zinc-300 hover:text-white font-medium">HAKKINDA</a>
+                <a href="https://z-roleplay.com/devv/" target="_blank"
+                    class="nav-link text-zinc-300 hover:text-white font-medium">FORUM</a>
                 <a href="#features" class="nav-link text-zinc-300 hover:text-white font-medium">ÖZELLİKLER</a>
                 <a href="https://discord.gg/4wE7W3Avef" class="nav-link text-zinc-300 hover:text-white font-medium"
                     target="_blank" rel="noopener noreferrer">DISCORD</a>
@@ -511,55 +556,94 @@
 
             <div class="rusty-container p-6 md:p-10 rounded-lg blood-border max-w-4xl mx-auto">
                 <div class="flex flex-col space-y-8">
-                    <div class="text-center">
-                        <div class="mb-4 text-center">
-                            <i class="fas fa-skull-crossbones text-dayz-red text-4xl"></i>
+                    <div class="relative text-center rounded-lg overflow-hidden shadow-lg" style="min-height: 220px;">
+                        <img src="/cdn/backgrounds/1.jpg" alt="Zombi arka plan"
+                            class="absolute inset-0 w-full h-full object-cover z-0 opacity-70 pointer-events-none" />
+                        <div class="absolute inset-0 bg-black bg-opacity-70 z-10"></div>
+                        <div class="relative z-20 flex flex-col items-center justify-center h-full py-8 px-4">
+                            <div class="mb-4 text-center">
+                                <i class="fas fa-skull-crossbones text-dayz-red text-4xl animate-pulse"></i>
+                            </div>
+                            <h3 class="text-xl font-bold mb-4 text-white drop-shadow-lg">Zombi İstilası Altında Bir
+                                Dünya</h3>
+                            <p class="text-dayz mx-auto max-w-2xl drop-shadow-md">
+                                Z-Roleplay, bilinmeyen bir virüsün zombi salgınına dönüştüğü post-apokaliptik bir
+                                dünyada geçiyor.
+                                Şehirler terk edilmiş, kaynaklar sınırlı ve her köşe tehlikeyle dolu.
+                                <span class="block mt-2 text-dayz-red font-semibold animate-pulse">Hayatta kalmak için
+                                    cesaretini ve
+                                    zekanı kullan!</span>
+                            </p>
                         </div>
-                        <h3 class="text-xl font-bold mb-4">Zombi İstilası Altında Bir Dünya</h3>
-                        <p class="text-dayz mx-auto max-w-2xl">Z-Roleplay, bilinmeyen bir virüsün zombi salgınına
-                            dönüştüğü post-apokaliptik bir dünyada geçiyor. Şehirler terk edilmiş, kaynaklar sınırlı ve
-                            her köşe tehlikeleyle dolu.</p>
                     </div>
 
                     <hr class="border-zinc-800 w-3/4 mx-auto">
 
-                    <div class="text-center">
-                        <div class="mb-4 text-center">
-                            <i class="fas fa-users text-dayz-red text-4xl"></i>
+                    <div class="relative text-center rounded-lg overflow-hidden shadow-lg" style="min-height: 220px;">
+                        <img src="cdn/backgrounds/2.jpg" alt="Topluluk arka plan"
+                            class="absolute inset-0 w-full h-full object-cover z-0 opacity-60 pointer-events-none" />
+                        <div class="absolute inset-0 bg-black bg-opacity-70 z-10"></div>
+                        <div class="relative z-20 flex flex-col items-center justify-center h-full py-8 px-4">
+                            <div class="mb-4 text-center">
+                                <i class="fas fa-users text-dayz-red text-4xl animate-pulse"></i>
+                            </div>
+                            <h3 class="text-xl font-bold mb-4 text-white drop-shadow-lg">Hayatta Kalan Topluluğu</h3>
+                            <p class="text-dayz mx-auto max-w-2xl drop-shadow-md">
+                                Hayatta kalanlar küçük topluluklar oluşturdular. Kimi yardımsever, kimi acımasız. Hangi
+                                tarafa katılacağın ve kime güveneceğin tamamen sana bağlı.
+                            </p>
+                            <span class="block mt-2 text-dayz-red font-semibold animate-pulse">Güven seçimin, tarafın
+                                kaderin
+                                olur.</span>
                         </div>
-                        <h3 class="text-xl font-bold mb-4">Hayatta Kalan Topluluğu</h3>
-                        <p class="text-dayz mx-auto max-w-2xl">Hayatta kalanlar küçük topluluklar oluşturdular. Kimi
-                            yardımsever, kimi acımasız. Hangi tarafa katılacağın ve kime güveneceğin tamamen sana bağlı.
-                        </p>
                     </div>
 
                     <hr class="border-zinc-800 w-3/4 mx-auto">
 
-                    <div class="text-center">
-                        <div class="mb-4 text-center">
-                            <i class="fas fa-campground text-dayz-red text-4xl"></i>
+                    <div class="relative text-center rounded-lg overflow-hidden shadow-lg" style="min-height: 220px;">
+                        <img src="cdn/backgrounds/3.jpg" alt="Hayatta kalma arka plan"
+                            class="absolute inset-0 w-full h-full object-cover z-0 opacity-60 pointer-events-none" />
+                        <div class="absolute inset-0 bg-black bg-opacity-70 z-10"></div>
+                        <div class="relative z-20 flex flex-col items-center justify-center h-full py-8 px-4">
+                            <div class="mb-4 text-center">
+                                <i class="fas fa-campground text-dayz-red text-4xl animate-pulse"></i>
+                            </div>
+                            <h3 class="text-xl font-bold mb-4 text-white drop-shadow-lg">Gerçek Hayatta Kalma</h3>
+                            <p class="text-dayz mx-auto max-w-2xl drop-shadow-md">
+                                Açlık, susuzluk, hastalıklar, yaralanmalar - tüm bunlar hayatta kalmanı zorlaştıracak.
+                                Kaynakları akıllıca kullanmalı ve stratejini iyi belirlemelisin.
+                            </p>
+                            <span class="block mt-2 text-dayz-red font-semibold animate-pulse">Kaynaklar tükenir,
+                                strateji seni
+                                yaşatır.</span>
                         </div>
-                        <h3 class="text-xl font-bold mb-4">Gerçek Hayatta Kalma</h3>
-                        <p class="text-dayz mx-auto max-w-2xl">Açlık, susuzluk, hastalıklar, yaralanmalar - tüm bunlar
-                            hayatta kalmanı zorlaştıracak. Kaynakları akıllıca kullanmalı ve stratejini iyi
-                            belirlemelisin.</p>
                     </div>
 
                     <hr class="border-zinc-800 w-3/4 mx-auto">
 
-                    <div class="text-center">
-                        <div class="mb-4 text-center">
-                            <i class="fas fa-theater-masks text-dayz-red text-4xl"></i>
+                    <div class="relative text-center rounded-lg overflow-hidden shadow-lg" style="min-height: 220px;">
+                        <img src="cdn/backgrounds/4.jpg" alt="Roleplay arka plan"
+                            class="absolute inset-0 w-full h-full object-cover z-0 opacity-60 pointer-events-none" />
+                        <div class="absolute inset-0 bg-black bg-opacity-70 z-10"></div>
+                        <div class="relative z-20 flex flex-col items-center justify-center h-full py-8 px-4">
+                            <div class="mb-4 text-center">
+                                <i class="fas fa-theater-masks text-dayz-red text-4xl animate-pulse"></i>
+                            </div>
+                            <h3 class="text-xl font-bold mb-4 text-white drop-shadow-lg">Sürükleyici Roleplay</h3>
+                            <p class="text-dayz mx-auto max-w-2xl drop-shadow-md">
+                                Karakterini canlandır, kendi hikayeni yaz ve bu tehlikeli dünyada iz bırak. Z-Roleplay,
+                                zengin roleplay deneyimi sunar.
+                            </p>
+                            <span class="block mt-2 text-dayz-red font-semibold animate-pulse">Unutma! Sen yazmazsan,
+                                hikayen
+                                başkasına yazılır.</span>
                         </div>
-                        <h3 class="text-xl font-bold mb-4">Sürükleyici Roleplay</h3>
-                        <p class="text-dayz mx-auto max-w-2xl">Karakterini canlandır, kendi hikayeni yaz ve bu tehlikeli
-                            dünyada iz bırak. Z-Roleplay, zengin roleplay deneyimi sunar.</p>
                     </div>
                 </div>
 
                 <div class="mt-12 p-4 bg-black rounded-md text-center">
                     <!-- <span class="scratched-text text-zinc-400">Z-Roleplay şu anda geliştirilme aşamasındadır.</span> -->
-                    <p class="text-dayz-red mt-2 font-bold">Sunucumuz çok yakında aktif olacak, şimdilik Discord'a
+                    <p class="text-zinc-400 mt-2">Sunucumuz çok yakında aktif olacak, şimdilik Discord'a
                         katılarak güncellemelerden haberdar olabilirsiniz!</p>
                 </div>
             </div>
@@ -627,64 +711,81 @@
 
     <div class="section-divider my-0"></div>
 
-    <section id="features" class="py-16 bg-gradient-to-b from-black to-zinc-900">
+    <section id="features" class="py-16 bg-gradient-to-b from-black to-white/5">
         <div class="container mx-auto px-4">
             <h2 class="text-3xl md:text-4xl font-bold text-center mb-12 glitch-effect">SUNUCU <span
                     class="text-dayz-red">ÖZELLİKLERİ</span></h2>
 
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 <div class="feature-card bg-dayz p-6 rounded-lg">
-                    <div class="text-3xl icon-red mb-4">
-                        <i class="fas fa-skull"></i>
+                    <div class="flex flex-row space-x-3 items-center text-center mx-auto justify-center">
+                        <div class="text-3xl icon-red mb-4">
+                            <i class="fas fa-skull"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3">Gelişmiş Zombi Sistemi</h3>
                     </div>
-                    <h3 class="text-xl font-bold mb-3">Gelişmiş Zombi Sistemi</h3>
-                    <p class="text-dayz">Farklı türlerde ve zorluklarda zombilerle dolu bir dünya. Hayatta kalmak için
+                    <p class="text-dayz text-center">Farklı türlerde ve zorluklarda zombilerle dolu bir dünya. Hayatta
+                        kalmak için
                         stratejini iyi belirle!</p>
                 </div>
 
                 <div class="feature-card bg-dayz p-6 rounded-lg">
-                    <div class="text-3xl icon-red mb-4">
-                        <i class="fas fa-utensils"></i>
+                    <div class="flex flex-row space-x-3 items-center text-center mx-auto justify-center">
+                        <div class="text-3xl icon-red mb-4">
+                            <i class="fas fa-utensils"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3">Açlık ve Susuzluk Sistemi</h3>
                     </div>
-                    <h3 class="text-xl font-bold mb-3">Açlık ve Susuzluk Sistemi</h3>
-                    <p class="text-dayz">Gerçekçi yaşam mekanikleri. Yiyecek ve içecek bulamazsan hayatta kalamazsın.
+                    <p class="text-dayz text-center">Gerçekçi yaşam mekanikleri. Yiyecek ve içecek bulamazsan hayatta
+                        kalamazsın.
                     </p>
                 </div>
 
                 <div class="feature-card bg-dayz p-6 rounded-lg">
-                    <div class="text-3xl icon-red mb-4">
-                        <i class="fas fa-medkit"></i>
+                    <div class="flex flex-row space-x-3 items-center text-center mx-auto justify-center">
+                        <div class="text-3xl icon-red mb-4">
+                            <i class="fas fa-medkit"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3">Detaylı Yaralanma Sistemi</h3>
                     </div>
-                    <h3 class="text-xl font-bold mb-3">Detaylı Yaralanma Sistemi</h3>
-                    <p class="text-dayz">Kırıklar, kanamalar ve enfeksiyonlar. Sağlık durumuna dikkat et ve ilk yardım
+                    <p class="text-dayz text-center">Kırıklar, kanamalar ve enfeksiyonlar. Sağlık durumuna dikkat et ve
+                        ilk yardım
                         malzemelerini akıllıca kullan.</p>
                 </div>
 
                 <div class="feature-card bg-dayz p-6 rounded-lg">
-                    <div class="text-3xl icon-red mb-4">
-                        <i class="fas fa-hammer"></i>
+                    <div class="flex flex-row space-x-3 items-center text-center mx-auto justify-center">
+                        <div class="text-3xl icon-red mb-4">
+                            <i class="fas fa-hammer"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3">Gelişmiş Craft Sistemi</h3>
                     </div>
-                    <h3 class="text-xl font-bold mb-3">Gelişmiş Craft Sistemi</h3>
-                    <p class="text-dayz">Bulduğun malzemelerle silah, araç, barınak ve ekipman yap. Kaynakları iyi
+                    <p class="text-dayz text-center">Bulduğun malzemelerle silah, araç, barınak ve ekipman yap.
+                        Kaynakları iyi
                         yönet.</p>
                 </div>
 
                 <div class="feature-card bg-dayz p-6 rounded-lg">
-                    <div class="text-3xl icon-red mb-4">
-                        <i class="fas fa-users"></i>
+                    <div class="flex flex-row space-x-3 items-center text-center mx-auto justify-center">
+                        <div class="text-3xl icon-red mb-4">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3">Topluluk Sistemi</h3>
                     </div>
-                    <h3 class="text-xl font-bold mb-3">Topluluk Sistemi</h3>
-                    <p class="text-dayz">Kendi topluluğunu oluştur veya bir topluluğa katıl.. Birlik olmak hayatta kalma
+                    <p class="text-dayz text-center">Kendi topluluğunu oluştur veya bir topluluğa katıl.. Birlik olmak
+                        hayatta kalma
                         şansını
                         artırır.</p>
                 </div>
 
                 <div class="feature-card bg-dayz p-6 rounded-lg">
-                    <div class="text-3xl icon-red mb-4">
-                        <i class="fas fa-home"></i>
+                    <div class="flex flex-row space-x-3 items-center text-center mx-auto justify-center">
+                        <div class="text-3xl icon-red mb-4">
+                            <i class="fas fa-home"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3">Base İnşa Etme</h3>
                     </div>
-                    <h3 class="text-xl font-bold mb-3">Base İnşa Etme</h3>
-                    <p class="text-dayz">Güvenli sığınaklar inşa et, elinden geldiğince savunmaya çalış.</p>
+                    <p class="text-dayz text-center">Güvenli sığınaklar inşa et, elinden geldiğince savunmaya çalış.</p>
                 </div>
             </div>
 
@@ -744,7 +845,7 @@
                                 <p class="text-dayz mt-2">
                                     Temel kodlama ve sunucu yapısı oluşturuluyor.
                                     <span
-                                        class="inline-flex mt-3 items-center gap-2 text-orange-400 border border-orange-500 rounded-full px-3 py-1 text-sm font-semibold ml-2 shadow-sm">
+                                        class="inline-flex mt-3 items-center gap-2 text-red-500 border border-red-500 rounded-full px-3 py-1 text-sm font-semibold ml-2 shadow-sm">
                                         <i class="fas fa-hammer"></i>
                                         Devam Ediyor...
                                     </span>
@@ -841,16 +942,18 @@
                     <div class="flex space-x-4">
                         <a href="https://discord.gg/4wE7W3Avef"
                             class="text-zinc-400 hover:text-dayz-red transition-colors">
-                            <i class="fab fa-discord text-xl"></i>
+                            <i data-tippy-content="Disord sunucumuz içerisinde oyunumuzun en küçük detaylarına kadar gelişme ve duyurularını takip edebilir ve sıcak ortamımızda yeni arkadaşlar edinip sohbet edebilirsiniz."
+                                class="fab fa-discord text-xl"></i>
                         </a>
-                        <a href="#" class="text-zinc-400 hover:text-dayz-red transition-colors">
-                            <i class="fab fa-instagram text-xl"></i>
+                        <a href="https://www.instagram.com/z.roleplaygame/"
+                            class="text-zinc-400 hover:text-dayz-red transition-colors">
+                            <i data-tippy-content="İnstagram hesabımızı takip ederek yaptığımız genel duyurulardan mahrum kalmazsınız."
+                                class="fab fa-instagram text-xl"></i>
                         </a>
-                        <a href="#" class="text-zinc-400 hover:text-dayz-red transition-colors">
-                            <i class="fab fa-youtube text-xl"></i>
-                        </a>
-                        <a href="#" class="text-zinc-400 hover:text-dayz-red transition-colors">
-                            <i class="fab fa-twitter text-xl"></i>
+                        <a href="https://www.youtube.com/@z-roleplay"
+                            class="text-zinc-400 hover:text-dayz-red transition-colors">
+                            <i data-tippy-content="YouTube kanalımız üzerinden bizi takip edebilir ve yeni içeriklerimizden haberdar olabilirsiniz."" class="
+                                fab fa-youtube text-xl"></i>
                         </a>
                     </div>
                 </div>
@@ -863,6 +966,17 @@
             </div>
         </div>
     </footer>
+
+    <script src="https://unpkg.com/@popperjs/core@2"></script>
+    <script src="https://unpkg.com/tippy.js@6"></script>
+    <script>
+        tippy('[data-tippy-content]', {
+            allowHTML: true,
+            placement: 'top',
+            animation: 'shift-toward',
+            theme: 'light'
+        });
+    </script>
 
     <script>
         document.addEventListener('DOMContentLoaded', function () {
